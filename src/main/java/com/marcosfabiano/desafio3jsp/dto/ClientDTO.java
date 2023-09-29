@@ -1,15 +1,19 @@
 package com.marcosfabiano.desafio3jsp.dto;
 
 import com.marcosfabiano.desafio3jsp.entities.Client;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotEmpty(message = "Nome não pode ser vazio")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Data de nascimento não pode ser data futura")
     private LocalDate birthDate;
     private Integer children;
 
